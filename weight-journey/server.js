@@ -8,6 +8,12 @@ let app = http.createServer((request, response) => {
     let filePath = '.' + request.url
     if (filePath === './')
         filePath = './public/views/index.html'
+
+    if (! fs.existsSync(filePath)){
+        response.writeHead(404)
+        response.end()
+    }
+
     fs.readFile(filePath, function (error, content){
         if (error) {
             response.writeHead(500)
