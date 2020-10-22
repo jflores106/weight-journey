@@ -5,8 +5,14 @@ const cookieParser = require('cookie-parser');
 const http = require('http')
 const hbs = require('express-handlebars')
 
+const InMemoryWeightStore = require('./models/weight-memory').InMemoryWeightStore
+let weightStore = new InMemoryWeightStore()
+exports.weightStore = weightStore
+
 const appsupport = require('./appsupport')
 const indexRouter = require('./routes/index');
+const weightRouter = require('./routes/weight')
+
 
 const app = express();
 exports.app = app
@@ -30,6 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Router function lists
 app.use('/', indexRouter);
+app.use('/weight', weightRouter)
+
 
 // Error handlers
 app.use(appsupport.basicErrorHandler)

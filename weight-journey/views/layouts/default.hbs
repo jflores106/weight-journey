@@ -2,12 +2,13 @@
 <html>
   <head>
     <title>{{title}}</title>
-<!--    <link rel='stylesheet' href='/stylesheets/style.css' />-->
       {{#each styles}}
           <link rel='stylesheet' href={{this}} />
       {{/each}}
   </head>
   <body>
+    {{> header}}
+    <img src="/images/weight-loss.jpg" alt="Weight Loss" class="image" width="500" height="400">
     {{{body}}}
   </body>
 </html>

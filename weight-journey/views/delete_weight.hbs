@@ -1,0 +1,10 @@
+<form method="POST" action="/weight/destroy/confirm">
+    <input type="hidden" name="weightKey"
+           value="{{ weightKey }}"/>
+    <p>
+        Delete {{ weightDate}}?
+    </p>
+
+    <br/> <input type="submit" value="DELETE"/>
+    <a href="/weight/view?key={{ weightKey }}">Cancel</a>
+</form>
