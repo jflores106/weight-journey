@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const http = require('http')
 const hbs = require('express-handlebars')
 
+
 const InMemoryWeightStore = require('./models/weight-memory').InMemoryWeightStore
 let weightStore = new InMemoryWeightStore()
 exports.weightStore = weightStore
@@ -16,6 +17,7 @@ const weightRouter = require('./routes/weight')
 
 const app = express();
 exports.app = app
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +35,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/assets/vendor/bootstrap', express.static(path.join(__dirname, 'node_modules', 'bootstrap', 'dist')))
+app.use('/assets/vendor/jquery', express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist')))
+app.use('/assets/vendor/popper.js', express.static(path.join(__dirname, 'node_modules', 'popper.js', 'dist', 'umd')))
+
+app.use('/assets/vendor/feather-icons', express.static(path.join(__dirname, 'node_modules', 'feather-icons', 'dist')))
 
 //Router function lists
 app.use('/', indexRouter);

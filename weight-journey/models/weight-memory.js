@@ -6,14 +6,15 @@ exports.InMemoryWeightStore = class InMemoryWeightStore extends AbstractWeightSt
 
     async close() { }
 
-    async update(key, date, body) {
+    async update(key, date, pounds, body) {
         weight[key].date = date
+        weight[key].pounds = pounds
         weight[key].body = body
         return weight[key]
     }
 
-    async create(key, date, body){
-        weight[key] = new Weight(key, date, body)
+    async create(key, date, pounds, body){
+        weight[key] = new Weight(key, date, pounds, body)
         return weight[key]
     }
 

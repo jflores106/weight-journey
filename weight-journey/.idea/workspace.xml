@@ -39,13 +39,32 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\janet\Desktop\weight-journey#9\public\assets" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start-watch">
     <configuration name="app.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
       <envs>
         <env name="DEBUG" value="weight-journey:*" />
       </envs>
       <method v="2" />
     </configuration>
+    <configuration name="start-watch" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start-watch" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.app.js" />
+      <item itemvalue="npm.start-watch" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -67,6 +86,16 @@
       <workItem from="1603304026682" duration="15194000" />
       <workItem from="1603330959107" duration="25000" />
       <workItem from="1603331085741" duration="81000" />
+      <workItem from="1603331537885" duration="1208000" />
+      <workItem from="1603860266119" duration="38000" />
+      <workItem from="1603860363835" duration="1593000" />
+      <workItem from="1603861994594" duration="30000" />
+      <workItem from="1603862385048" duration="34000" />
+      <workItem from="1603862759849" duration="6768000" />
+      <workItem from="1603914834088" duration="21143000" />
+      <workItem from="1604085210406" duration="18164000" />
+      <workItem from="1604346051684" duration="11918000" />
+      <workItem from="1604475818582" duration="1443000" />
     </task>
     <servers />
   </component>
@@ -86,30 +115,30 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="37" y="74" width="833" height="661" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602731028301">
+    <state x="703" y="144" width="833" height="680" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604259290199">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="37" y="74" width="833" height="661" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1602731028301" />
+    <state x="703" y="144" width="833" height="680" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1604259290199" />
     <state x="180" y="136" key="FileChooserDialogImpl" timestamp="1603330980624">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="180" y="136" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603330980624" />
-    <state width="734" height="195" key="GridCell.Tab.0.bottom" timestamp="1603331167246">
+    <state width="734" height="194" key="GridCell.Tab.0.bottom" timestamp="1604517305223">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="734" height="195" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603331167246" />
-    <state width="734" height="195" key="GridCell.Tab.0.center" timestamp="1603331167246">
+    <state width="734" height="194" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604517305223" />
+    <state width="734" height="194" key="GridCell.Tab.0.center" timestamp="1604517305223">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="734" height="195" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603331167246" />
-    <state width="734" height="195" key="GridCell.Tab.0.left" timestamp="1603331167246">
+    <state width="734" height="194" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604517305223" />
+    <state width="734" height="194" key="GridCell.Tab.0.left" timestamp="1604517305223">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="734" height="195" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603331167246" />
-    <state width="734" height="195" key="GridCell.Tab.0.right" timestamp="1603331167246">
+    <state width="734" height="194" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604517305223" />
+    <state width="734" height="194" key="GridCell.Tab.0.right" timestamp="1604517305223">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="734" height="195" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603331167246" />
+    <state width="734" height="194" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604517305223" />
     <state width="734" height="259" key="GridCell.Tab.1.bottom" timestamp="1603330855652">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -158,16 +187,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="734" height="259" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1603330855653" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app.js</url>
-          <line>7</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="812" y="189" key="run.anything.popup" timestamp="1604099778237">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="812" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1604099778237" />
   </component>
 </project>

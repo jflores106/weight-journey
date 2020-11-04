@@ -9,7 +9,9 @@ router.get('/add', async (req, res, next) => {
             isCreate: true,
             title: 'Add an Entry',
             weightKey: await weightStore.count(),
-            styles: ['/stylesheets/style.css', '/stylesheets/style2.css']
+            styles: ['/stylesheets/style.css', '/stylesheets/style2.css'],
+            isAddWeightActive: 'active',
+            tabName: 'New Entry'
         })
     } catch (err) {
         next(err)
@@ -21,9 +23,9 @@ router.post('/save', async (req, res, next) =>{
     try {
         let weight;
         if (req.body.saveMethod === 'create')
-            weight = await weightStore.create(req.body.weightKey, req.body.date, req.body.body)
+            weight = await weightStore.create(req.body.weightKey, req.body.date, req.body.pounds, req.body.body)
         else
-            weight = await weightStore.update(req.body.weightKey, req.body.date, req.body.body)
+            weight = await weightStore.update(req.body.weightKey, req.body.date, req.body.pounds, req.body.body)
         res.redirect('/weight/view?key=' + req.body.weightKey)
     } catch (err){
         next(err)
@@ -38,8 +40,10 @@ router.get('/view', async (req, res, next) =>{
             title: 'View Entry', //View Weight
             weightDate: weight.date,
             weightKey: weight.key,
+            weightPounds: weight.pounds,
             weightBody: weight.body,
-            styles: ['/stylesheets/style.css', '/stylesheets/style2.css']
+            styles: ['/stylesheets/style.css', '/stylesheets/style2.css'],
+            tabName: 'Entry: ' + weight.date
         })
     } catch (err) {
         next(err)
@@ -56,8 +60,10 @@ router.get('/viewAll', async function(req, res, next) {
         let allWeight = await Promise.all(keyPromises)
         res.render('view_list', {
             weightList: extractWeightToLiteral(allWeight),
-            title: 'View Entries',
-            styles: ['/stylesheets/style.css', '/stylesheets/style2.css']
+            title: 'Entries',
+            styles: ['/stylesheets/style.css', '/stylesheets/style2.css'],
+            isViewWeightActive: 'active',
+            tabName: 'View Entries'
         });
     } catch (err) {
         next(err)
@@ -68,7 +74,8 @@ function extractWeightToLiteral(allWeight){
     return allWeight.map(weight => {
             return {
                 key: weight.key,
-                date: weight.date
+                date: weight.date,
+                pounds: weight.pounds
             }
         })
 }
@@ -83,8 +90,10 @@ router.get('/edit', async (req, res, next) => {
             title: 'Edit Entry', //Edit Weight
             weightDate: weight.date,
             weightKey: weight.key,
+            weightPounds: weight.pounds,
             weightBody: weight.body,
-            styles: ['/stylesheets/style.css', '/stylesheets/style2.css']
+            styles: ['/stylesheets/style.css', '/stylesheets/style2.css'],
+            tabName: 'Edit Entry: ' + weight.date
         })
     } catch (err){
         next(err)
@@ -98,7 +107,8 @@ router.get('/destroy', async (req, res, next) => {
             title: 'Delete Entry', //weight ? weight.date : "",
             weightKey: weight.key,
             weightDate: weight.date,
-            styles: ['/stylesheets/style.css', '/stylesheets/style2.css']
+            styles: ['/stylesheets/style.css', '/stylesheets/style2.css'],
+            tabName: 'Delete Entry: ' + weight.date
         })
     } catch (err){
         next(err)

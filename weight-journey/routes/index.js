@@ -5,8 +5,9 @@ const router = express.Router();
 router.get('/', async function(req, res, next) {
   const options = {
     'title': 'Weight-Journey',
-    'name': 'Weight-Journey App',
-    'styles': ['/stylesheets/style.css', '/stylesheets/style2.css']
+    'tabName': 'Weight-Journey App',
+    'styles': ['/stylesheets/style.css', '/stylesheets/style2.css'],
+    'isHomeActive': 'active'
   }
   res.render('index', options);
 

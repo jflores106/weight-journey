@@ -1,5 +1,9 @@
-<ul>
-    {{#each weightList}}
-        <li>{{ key }}: <a href="/weight/view?key={{ key }}">{{ date }}</a></li>
-    {{/each}}
-</ul>
+{{#each weightList}}
+    <div class="row row-cols-8 justify-content-center">
+        <div class="col-8 col-md-5">
+
+            {{ key }}: <a href="/weight/view?key={{ key }}">{{ date }}</a>
+        </div>
+    </div>
+{{/each}}
+

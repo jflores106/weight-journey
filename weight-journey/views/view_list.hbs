@@ -1,5 +1,19 @@
-<ul>
-    {{#each weightList}}
-        <li>{{ key }}: <a href="/weight/view?key={{ key }}">{{ date }}</a></li>
-    {{/each}}
-</ul>
+<div class="row justify-content-center mt-2">
+    <table class="table table-hover table-bordered col-6">
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Weight (lbs.)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each weightList}}
+        <tr>
+            <td><a href="/weight/view?key={{ key }}">{{ date }}</a></td>
+            <td>{{ pounds }} </td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+</div>

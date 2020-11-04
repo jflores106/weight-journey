@@ -1,13 +1,50 @@
-<form method="post" action="/weight/save">
-    <input type="hidden" name="saveMethod"
-           value="{{#if isCreate}}create{{else}}update{{/if}}"/>
-    <p>
-        Key: {{ weightKey }}
-        <input type="hidden" name="weightKey" value="{{ weightKey }}" />
-    </p>
-    <p>
-        Date: <input type="date" name="date"/><br/>
-    </p>
-    <textarea rows=4 cols=30 name="body"></textarea><br/>
-    <input type="submit" value="Submit"/>
+<form method="post" , action="/weight/save">
+    <div class="container-fluid">
+        <input type="hidden" name="saveMethod"
+               value="{{#if isCreate}}create{{else}}update{{/if}}"/>
+
+        <div class="form-group row justify-content-center">
+            <input type="hidden" name="weightKey" value="{{ weightKey }}"/>
+        </div>
+
+        <div class="form-group row justify-content-center mt-3">
+            <div class="col-auto text-right font-weight-bold">
+                <label class="col-form-label" for="date">Date: </label>
+            </div>
+
+            <div class="col-auto">
+                <input class="form-control" type="date" name="date"/><br/>
+            </div>
+        </div>
+
+
+        <div class="form-group row justify-content-center">
+            <div class="col-auto text-right font-weight-bold">
+                <label class="col-form-label" for="pounds">Weight: </label>
+            </div>
+
+            <div class="col-4">
+                <input class="form-control" type="number" step="0.01" name="pounds" min="1"/> <br/>
+
+            </div>
+
+            <div>
+                <label class="col-form-label" for="pounds">lbs.</label>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center mt-3">
+            <div class="col-2 text-right font-weight-bold">
+                <label class="col-form-label" for="body">Diary Entry: </label>
+            </div>
+            <div class="col-9">
+            <textarea class="col-11 form-control" rows=4 name="body"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center">
+            <input class="col-2" type="submit" value="Submit"/>
+        </div>
+
+    </div>
 </form>
