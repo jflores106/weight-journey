@@ -8,8 +8,22 @@ h1 {
     display: block;
     margin-left: auto;
     margin-right: auto;
+
+}
+
+#addPageImg {
     width: 50%;
 }
+
+#homeImage {
+    width: 60%;
+}
+
+#viewPageImg {
+    width: 50%;
+}
+
+
 
 .nav-pills a:hover{
     background-color: #daedf2;
@@ -19,3 +33,35 @@ h1 {
     font-size: 20px;
 }
 
+.delete-entry {
+    font-size: 22px;
+}
+
+.list-table {
+    height: 200px;
+    overflow: auto;
+}
+
+#labels{
+    float: left;
+    text-align: left;
+    width: 25%;
+}
+
+#navColor{
+    background-color: lightskyblue;
+}
+
+#navText{
+    color: #386890;
+}
+
+.navbar-toggler-icon{
+    color: black;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background-color: lightskyblue;
+}

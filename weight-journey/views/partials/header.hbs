@@ -1,17 +1,30 @@
 <header>
-        <h1 class="justify-content-center">{{ title }}</h1>
+    <nav class="navbar navbar-expand-md navbar-dark" id="navColor">
+        <div class="container-fluid">
+            <div class="navbar-header mb-1">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navBar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="/" id="navText">Weight-Journey</a>
+            </div>
 
-    <div class="container-fluid">
-        <ul class="nav nav-pills nav-fill justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link {{isHomeActive}}" href="/"><i data-feather="home"></i> </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{isAddWeightActive}}" href="/weight/add">Add Weight</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{isViewWeightActive}}" href="/weight/viewAll">View All</a>
-            </li>
-        </ul>
-    </div>
+            <div class="collapse navbar-collapse" id="navBar">
+                <ul class="nav nav-pills justify-content-center align-content-center">
+                    <li class="nav-item mr-1">
+                        <a class="nav-link {{isHomeActive}} text-center" href="/"><i data-feather="home"></i> </a>
+                    </li>
+
+                    <li class="nav-item mr-1">
+                        <a class="nav-link {{isAddWeightActive}} text-center" href="/weight/add">Add Weight</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{isViewWeightActive}} text-center" href="/weight/viewAll">View All</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1 class="justify-content-center mb-3">{{ title }}</h1>
 </header>

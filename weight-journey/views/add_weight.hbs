@@ -1,3 +1,11 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-10">
+                    <img src="/assets/images/weight-loss.jpg" alt="Weight Loss" class="image mt-1" id="addPageImg">
+        </div>
+    </div>
+</div>
+
 <form method="post" , action="/weight/save">
     <div class="container-fluid">
         <input type="hidden" name="saveMethod"
@@ -7,8 +15,9 @@
             <input type="hidden" name="weightKey" value="{{ weightKey }}"/>
         </div>
 
-        <div class="form-group row justify-content-center mt-3">
-            <div class="col-auto text-right font-weight-bold">
+<!--        <div class="form-group row justify-content-center mt-3">-->
+        <div class="form-group row mt-3">
+            <div class="col-auto text-right font-weight-bold" id="labels">
                 <label class="col-form-label" for="date">Date: </label>
             </div>
 
@@ -17,9 +26,9 @@
             </div>
         </div>
 
+        <div class="form-group row">
 
-        <div class="form-group row justify-content-center">
-            <div class="col-auto text-right font-weight-bold">
+        <div class="col-auto text-right font-weight-bold" id="labels">
                 <label class="col-form-label" for="pounds">Weight: </label>
             </div>
 
@@ -33,17 +42,21 @@
             </div>
         </div>
 
-        <div class="form-group row justify-content-center mt-3">
-            <div class="col-2 text-right font-weight-bold">
-                <label class="col-form-label" for="body">Diary Entry: </label>
+        <div class="form-group row mt-3">
+
+            <div class="col-auto text-right font-weight-bold" id="labels">
+
+            <label class="col-form-label" for="body">Diary Entry: </label>
             </div>
             <div class="col-9">
-            <textarea class="col-11 form-control" rows=4 name="body"></textarea>
+                <textarea class="col-10 form-control" rows=4 name="body"></textarea>
+
             </div>
         </div>
 
         <div class="form-group row justify-content-center">
-            <input class="col-2" type="submit" value="Submit"/>
+            <input class="col-auto" type="submit" value="Submit"/>
+
         </div>
 
     </div>

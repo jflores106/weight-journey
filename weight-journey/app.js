@@ -6,8 +6,8 @@ const http = require('http')
 const hbs = require('express-handlebars')
 
 
-const InMemoryWeightStore = require('./models/weight-memory').InMemoryWeightStore
-let weightStore = new InMemoryWeightStore()
+const MongooseWeightStore = require('./models/weight-mongoose').MongooseWeightStore
+let weightStore = new MongooseWeightStore()
 exports.weightStore = weightStore
 
 const appsupport = require('./appsupport')
