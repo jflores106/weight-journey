@@ -42,6 +42,7 @@ h1 {
     overflow: auto;
 }
 
+
 #labels{
     float: left;
     text-align: left;
@@ -49,19 +50,21 @@ h1 {
 }
 
 #navColor{
-    background-color: lightskyblue;
+    /*background-color: lightskyblue;*/
+    /*background-color: #b5e1fc;*/
+    background-color: #93d5fe;
 }
 
 #navText{
-    color: #386890;
-}
-
-.navbar-toggler-icon{
+    /*color: #386890;*/
     color: black;
 }
+
 
 th {
     position: sticky;
     top: 0;
-    background-color: lightskyblue;
+    background-color: #93d5fe;
+    /*background-color: lightskyblue;*/
 }
+
