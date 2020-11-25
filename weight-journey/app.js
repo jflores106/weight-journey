@@ -1,21 +1,28 @@
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
+// const cookieParser = require('cookie-parser');
 const http = require('http')
 const hbs = require('express-handlebars')
+
 const session = require('express-session')
 const MemoryStore = require('memorystore')(session)
 const connectFlash = require('connect-flash')
+const moment = require('moment')
 const mongoose = require('mongoose')
+const passport = require('passport')
+const { User } = require('./models/user')
+
 
 mongoose.connect(process.env.DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-})
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true //in lecture 12
+        })
     .catch (err => {
         console.log(err)
     })
+
 
 const appsupport = require('./appsupport')
 const indexRouter = require('./routes/index');
@@ -53,7 +60,13 @@ app.use(session({
 }))
 app.use(connectFlash())
 
+app.use(passport.initialize())
+app.use(passport.session())
+passport.use(User.createStrategy())
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 
+// app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/assets/vendor/bootstrap', express.static(path.join(__dirname, 'node_modules', 'bootstrap', 'dist')))
 app.use('/assets/vendor/jquery', express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist')))
@@ -63,6 +76,8 @@ app.use('/assets/vendor/feather-icons', express.static(path.join(__dirname, 'nod
 
 
 app.use((req, res, next) => {
+    res.locals.loggedIn = req.isAuthenticated()
+    res.locals.currentUser = req.user ? req.user.toObject() : undefined
     res.locals.flashMessages = req.flash()
     next()
 })

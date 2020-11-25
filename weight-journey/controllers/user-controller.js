@@ -1,5 +1,6 @@
 let User = require('../models/user').User
 const { body, validationResult } = require('express-validator')
+const passport = require('passport')
 
 exports.userController = {
     create: async (req, res) => {
@@ -10,31 +11,69 @@ exports.userController = {
         } else {
             try {
                 let userParams = getUserParams(req.body)
-                let user = await User.create(userParams)
+                let newUser = new User(userParams)
+                let user = await User.register(newUser, req.body.password)
                 req.flash('success', `${user.fullName}'s account created successfully`)
                 res.redirect('/users/login')
             } catch (err) {
                 console.log(`Error saving user: ${err.message}`)
-                req.flash('error', `Failed to create account because ${err.message}`)
-                res.redirect('/users/register')
+                req.flash('error', 'Failed to create user account. Invalid email.')
+                res.redirect('back')
             }
         }
     },
-    authenticate: async (req, res) => {
+    authenticate: async (req, res, next) => {
+        await passport.authenticate('local', function (err, user, info) {
+            if (err)
+                return next(err)
+            if (!user) {
+                req.flash('error', 'Failed to login')
+                return res.redirect('/users/login')
+            }
+            req.logIn(user, function (err) {
+                if (err)
+                    return next(err)
+                req.flash('success', `${user.fullName} logged in!`)
+                return res.redirect('/')
+            })
+        }) (req, res, next);
+        },
+
+    loggingOut: async (req, res, next) => {
         try {
-            let user = await User.findOne({email: req.body.email})
-            if (user && await user.passwordComparison(req.body.password)) {
-                req.flash('success', `${user.fullName} logged in successfully!`)
-                res.redirect('/')
+            req.logout()
+            req.flash('success', 'Successfully logged out')
+            res.redirect('/')
+        }
+        catch (err) {
+            next(err)
+        }
+    },
+
+    profile: async (req, res, next) => {
+        if (req.isAuthenticated()) {
+            try {
+                res.render('users/myaccount', {
+                    isCreate: true,
+                    title: 'My Account',
+                    styles: ['/stylesheets/style.css', '/stylesheets/style2.css'],
+                    tabName: 'Profile'
+                })
+            } catch (err) {
+                next(err)
             }
-            else {
-                req.flash('error', 'Your email or password is incorrect. Please try again.')
-                res.redirect('/users/login')
-            }
-        } catch (err) {
-            req.flash('error', 'Your email or password is incorrect. Please try again.')
+        } else {
+            req.flash('error', 'Please log in to access profile')
             res.redirect('/users/login')
         }
+    },
+
+    passwordChange: async (req, res, next) => {
+        let user = await User.findById({_id: req.user.id.trim() })
+        user.changePassword(req.body.password, req.body.newPassword)
+        req.flash('success', 'Successfully changed your password')
+        res.redirect('/')
+
     }
 }
 

@@ -39,7 +39,7 @@ router.get('/destroy', async (req, res, next) => {
 })
 
 router.post('/destroy/confirm', async (req, res, next) => {
-    await weightController.destroyConf(req, res, next)
+    await weightController.destroyConfirm(req, res, next)
 })
 
 

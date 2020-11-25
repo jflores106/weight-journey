@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+
 const WeightSchema = new mongoose.Schema({
     date: {
         type: Date,
@@ -14,5 +15,7 @@ const WeightSchema = new mongoose.Schema({
         require: false
     }
 })
+
+WeightSchema.set('toObject', { getters: true, virtuals: true})
 
 exports.Weight = mongoose.model('weight', WeightSchema)
