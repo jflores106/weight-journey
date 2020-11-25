@@ -140,7 +140,7 @@ exports.weightController = {
 
             // Remove the ID from the User list of weight ids.
             let IdIndex = req.user.weight.indexOf(req.body.weightId)
-            req.user.weight.splice(IdIndex, 1) //splices
+            req.user.weight.splice(IdIndex, 1)
 
             // Update your user in the collection (users) - just the list of weight ids
             req.user = await User.findByIdAndUpdate({_id: req.user.id.trim() }, { weight: req.user.weight }, {new: true})

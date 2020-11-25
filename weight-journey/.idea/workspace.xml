@@ -11,30 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ab240e1-43c0-4bd8-aff4-8ebb986daf65" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user-controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/weight-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/weight-controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/weight.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/weight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/generaterr/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/generaterr/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport-local-mongoose/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport-local-mongoose/node_modules/semver/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport-local-mongoose/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport-local-mongoose/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport-local/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport-local/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport-strategy/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport-strategy/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/pause/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/pause/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/scmp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/scmp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/stylesheets/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/stylesheets/style2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/weight.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/weight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/default.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/default.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/users/register.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/register.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/weight/delete_weight.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/weight/delete_weight.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/weight/edit_weight.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/weight/edit_weight.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/weight/view_list.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/weight/view_list.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/weight/view_weight.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/weight/view_weight.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +124,7 @@
       <workItem from="1606024894212" duration="41476000" />
       <workItem from="1606200634831" duration="13659000" />
       <workItem from="1606334892371" duration="30000" />
+      <workItem from="1606335091983" duration="78000" />
     </task>
     <servers />
   </component>
