@@ -1,10 +1,9 @@
 let Weight = require('../models/weight').Weight
 const moment = require('moment')
-let { User } = require('../models/user')
-
+let {User} = require('../models/user')
+const {body, validationResult} = require('express-validator')
 
 exports.weightController = {
-
     add: async (req, res, next) => {
         if (req.isAuthenticated()) {
             try {
@@ -25,28 +24,33 @@ exports.weightController = {
     },
 
     save: async (req, res, next) => {
-        try {
-            let weight
-            if (req.body.saveMethod === 'create') {
-                weight = await create(req.body.date, req.body.pounds, req.body.body)
-                req.user.weight.push(weight.id.trim())
-                req.user = await User.findByIdAndUpdate({_id: req.user.id.trim() }, { weight: req.user.weight }, {new: true})
-                req.flash('success', 'Successfully added an entry')
-
-            } else {
-                weight = await update(req.body.weightId, req.body.date, req.body.pounds, req.body.body)
-                req.flash('success', 'Successfully edited entry')
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            req.flash('error', errors.array().map(e => e.msg + '</br>').join(''))
+            res.redirect('back')
+        } else {
+            try {
+                let weight
+                if (req.body.saveMethod === 'create') {
+                    weight = await create(req.body.date, req.body.pounds, req.body.body)
+                    req.user.weight.push(weight.id.trim())
+                    req.user = await User.findByIdAndUpdate({_id: req.user.id.trim()}, {weight: req.user.weight}, {new: true})
+                    req.flash('success', 'Successfully added an entry')
+                } else {
+                    weight = await update(req.body.weightId, req.body.date, req.body.pounds, req.body.body)
+                    req.flash('success', 'Successfully edited entry')
+                }
+                res.redirect(`/weight/view?id=${weight.id}`)
+            } catch (err) {
+                next(err)
             }
-            res.redirect(`/weight/view?id=${weight.id}`)
-        } catch (err) {
-            next(err)
         }
     },
 
     view: async (req, res, next) => {
         if (req.isAuthenticated()) {
             try {
-                const weight = await Weight.findOne({ _id: req.query.id.trim() })
+                const weight = await Weight.findOne({_id: req.query.id.trim()})
                 res.render('weight/view_weight', {
                     title: 'View Entry', //View Weight
                     weightId: weight._id,
@@ -78,7 +82,6 @@ exports.weightController = {
                         pounds: weight.pounds,
                     }
                 })
-
                 res.render('weight/view_list', {
                     weightList: allWeight,
                     title: 'Entries',
@@ -89,28 +92,27 @@ exports.weightController = {
             } catch (err) {
                 next(err)
             }
-
         } else {
             req.flash('error', 'Please log in to access entries')
             res.redirect('/users/login')
-    }
+        }
     },
 
     edit: async (req, res, next) => {
         if (req.isAuthenticated()) {
-            try{
-            const weight = await Weight.findOne({ _id: req.query.id.trim() })
-            res.render('weight/edit_weight', {
-                isCreate: false,
-                title: 'Edit Entry',
-                weightId: weight._id,
-                weightDate: moment.utc(weight.date).format("YYYY-MM-DD"),
-                weightPounds: weight.pounds,
-                weightBody: weight.body,
-                styles: ['/stylesheets/style.css', '/stylesheets/style2.css'],
-                tabName: 'Edit Entry: ' + moment.utc(weight.date).format("MM/DD/YYYY")
+            try {
+                const weight = await Weight.findOne({_id: req.query.id.trim()})
+                res.render('weight/edit_weight', {
+                    isCreate: false,
+                    title: 'Edit Entry',
+                    weightId: weight._id,
+                    weightDate: moment.utc(weight.date).format("YYYY-MM-DD"),
+                    weightPounds: weight.pounds,
+                    weightBody: weight.body,
+                    styles: ['/stylesheets/style.css', '/stylesheets/style2.css'],
+                    tabName: 'Edit Entry: ' + moment.utc(weight.date).format("MM/DD/YYYY")
                 })
-            } catch (err){
+            } catch (err) {
                 next(err)
             }
         } else {
@@ -120,37 +122,29 @@ exports.weightController = {
     },
 
     destroy: async (req, res, next) => {
-            try{
-                let weight = await Weight.findOne({ _id: req.query.id.trim() })
-                res.render('weight/delete_weight', {
+        try {
+            let weight = await Weight.findOne({_id: req.query.id.trim()})
+            res.render('weight/delete_weight', {
                 title: 'Delete Entry',
                 weightId: weight._id,
                 weightDate: moment.utc(weight.date).format("MMM Do YYYY"),
                 styles: ['/stylesheets/style.css', '/stylesheets/style2.css'],
                 tabName: 'Delete Entry: ' + moment.utc(weight.date).format("MM/DD/YYYY")
             })
-        } catch (err){
+        } catch (err) {
             next(err)
         }
-
     },
 
     destroyConfirm: async (req, res, next) => {
-        try{
-
-            // Remove the ID from the User list of weight ids.
+        try {
             let IdIndex = req.user.weight.indexOf(req.body.weightId)
             req.user.weight.splice(IdIndex, 1)
-
-            // Update your user in the collection (users) - just the list of weight ids
-            req.user = await User.findByIdAndUpdate({_id: req.user.id.trim() }, { weight: req.user.weight }, {new: true})
-
-            //Delete from weight collection
+            req.user = await User.findByIdAndUpdate({_id: req.user.id.trim()}, {weight: req.user.weight}, {new: true})
             await Weight.findByIdAndDelete(req.body.weightId)
-
             req.flash('success', 'Successfully deleted an entry')
             res.redirect('/weight/viewAll')
-        } catch (err){
+        } catch (err) {
             next(err)
         }
     }
@@ -170,6 +164,13 @@ create = async (date, pounds, body) => {
 
 update = async (id, date, pounds, body) => {
     id = id.trim()
-    let weight = await Weight.findByIdAndUpdate({ _id: id }, {date: date, pounds: pounds, body: body },{new: true})
+    let weight = await Weight.findByIdAndUpdate({_id: id}, {date: date, pounds: pounds, body: body}, {new: true})
     return weight
 }
+
+exports.addEntryValidations = [
+    body('date')
+        .notEmpty().withMessage('Date is required'),
+    body('pounds')
+        .notEmpty().withMessage('Weight is required')
+]

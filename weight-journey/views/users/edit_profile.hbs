@@ -1,0 +1,43 @@
+<div class="container-fluid m-2">
+    {{> user_messages}}
+</div>
+
+<form method="post" action="/users/update-profile">
+    <div class="form-group row justify-content-center mb-0">
+        <div class="col-1 col-md-3"></div>
+        <div class="col-9 col-md-4 text-left font-weight-bold">
+            <label class="col-form-label" for="email">Email: </label>
+        </div>
+        <div class="col-1 col-md-3"></div>
+        <div class="col-9 col-md-4">
+            <input class="form-control" id="email" type="email" name="email" value="{{ currentUser.email }}"/><br/>
+        </div>
+    </div>
+
+    <div class="form-group row justify-content-center mb-0">
+        <div class="col-1 col-md-3"></div>
+        <div class="col-9 col-md-4 text-left font-weight-bold">
+            <label class="col-form-label" for="firstName">First Name: </label>
+        </div>
+        <div class="col-1 col-md-3"></div>
+        <div class="col-9 col-md-4">
+            <input class="form-control" id="firstName" type="text" name="first"
+                   value="{{ currentUser.name.first }}"/><br/>
+        </div>
+    </div>
+
+    <div class="form-group row justify-content-center mb-0">
+        <div class="col-1 col-md-3"></div>
+        <div class="col-9 col-md-4 text-left font-weight-bold">
+            <label class="col-form-label" for="lastName">Last Name: </label>
+        </div>
+        <div class="col-1 col-md-3"></div>
+        <div class="col-9 col-md-4">
+            <input class="form-control" id="lastName" type="text" name="last" value="{{ currentUser.name.last }}"/><br/>
+        </div>
+    </div>
+
+    <div class="form-group row justify-content-center">
+        <input class="p-2 col-lg-1 col-auto" type="submit" value="Submit"/>
+    </div>
+</form>

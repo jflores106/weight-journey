@@ -11,9 +11,7 @@
 
             <div class="collapse navbar-collapse" id="navBar">
                 <ul class="nav nav-pills justify-content-center align-content-center">
-
-
-                            {{#unless loggedIn}}
+                    {{#unless loggedIn}}
                         <li class="nav-item mr-1">
                             <a class="nav-link {{isLoginActive}} text-center" href="/users/login">Login</a>
                         </li>
@@ -21,7 +19,7 @@
                         <li class="nav-item mr-1">
                             <a class="nav-link {{isRegisterActive}} text-center" href="/users/register">Sign up</a>
                         </li>
-                            {{else}}
+                    {{else}}
 
                         <li class="nav-item mr-1">
                             <a class="nav-link {{isHomeActive}} text-center" href="/"><i data-feather="home"></i> </a>
@@ -35,15 +33,15 @@
                             <a class="nav-link {{isViewWeightActive}} text-center" href="/weight/viewAll">View All</a>
                         </li>
 
-
                         <li class="nav-item mr-1">
                             <a class="nav-link text-center" href="/users/logout">Log Out</a>
                         </li>
 
-                    <li class="nav-item mr-1">
-                        <a class="nav-link text-center" href="/users/myaccount">{{ currentUser.name.first }}'s Account</a>
-                    </li>
-                            {{/unless}}
+                        <li class="nav-item mr-1">
+                            <a class="nav-link {{isMyAccountActive}} text-center"
+                               href="/users/myaccount">My Account</a>
+                        </li>
+                    {{/unless}}
                 </ul>
             </div>
         </div>

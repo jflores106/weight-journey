@@ -1,15 +1,12 @@
 <form method="POST" action="/weight/destroy/confirm">
     <div class="container-fluid">
-        <input type="hidden" name="weightId"
-               value="{{ weightId }}"/>
+        <input type="hidden" name="weightId" value="{{ weightId }}"/>
 
         <p class="form-text text-center delete-entry"> Delete entry from {{ weightDate }}?</p>
 
         <div class="form-group row justify-content-center">
             <br/> <input class="col-auto mr-3" type="submit" value="DELETE"/> <br/>
-
             <a href="/weight/view?id={{ weightId }}">Cancel</a>
         </div>
-
     </div>
 </form>

@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
 router.get('/', async function(req, res, next) {
   const options = {
     'title': 'Weight-Journey',
@@ -10,7 +9,6 @@ router.get('/', async function(req, res, next) {
     'isHomeActive': 'active'
   }
   res.render('index', options);
-
 });
 
 module.exports = router;

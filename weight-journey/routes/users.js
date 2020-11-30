@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { registerValidations, userController } = require('../controllers/user-controller')
+const { registerValidations, userController, passwordValidations, profileValidations } = require('../controllers/user-controller')
 
 router.get('/register', async (req, res, next) => {
     res.render('users/register', {
@@ -9,7 +9,6 @@ router.get('/register', async (req, res, next) => {
         isRegisterActive: 'active',
     })
 })
-
 
 router.post('/register', registerValidations, async (req, res, next) => {
     await userController.create(req, res, next)
@@ -36,8 +35,18 @@ router.get('/myaccount', async (req, res, next) => {
 
 })
 
-router.post('/myaccount', async (req, res, next) => {
+router.post('/myaccount', passwordValidations, async (req, res, next) => {
     await userController.passwordChange(req, res, next)
+})
+
+router.get('/edit-profile', async (req, res, next) => {
+    await userController.editProfile(req, res, next)
+
+})
+
+router.post('/update-profile', profileValidations, async (req, res, next) =>{
+    await userController.updateProfile(req, res, next)
+
 })
 
 module.exports = router

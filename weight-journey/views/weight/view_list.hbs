@@ -3,43 +3,36 @@
 </div>
 
 <div class="container-fluid">
-
-<div class="row justify-content-center mt-2 list-table">
+    <div class="row justify-content-center mt-2 list-table">
         <table class="table table-hover table-bordered col-6">
-
-        <thead>
-        <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Weight (lbs.)</th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#each weightList}}
-        <tr>
-
-            <td><a href="/weight/view?id={{ id }}">{{ date }}</a></td>
-            <td>{{ pounds }} </td>
-
-        </tr>
-        {{/each}}
-        </tbody>
-    </table>
-
-</div>
-
+            <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Weight (lbs.)</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each weightList}}
+                <tr>
+                    <td><a href="/weight/view?id={{ id }}">{{ date }}</a></td>
+                    <td>{{ pounds }} </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
 
     <div class="row justify-content-center">
-        <canvas class="col-xl-6 col-lg-8 mt-3 mb-5" id="myChart"></canvas>
+        <canvas class="col-xl-6 col-lg-8 col-auto mt-3 mb-5" id="myChart"></canvas>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
     let table = document.querySelector('.table')
     let arrY = []
     let arrX = []
-    for(let i=1; i<table.rows.length; i++) {
+    for (let i = 1; i < table.rows.length; i++) {
         let d = table.rows[i].cells[0].innerText
         let w = table.rows[i].cells[1].innerHTML
         arrX.push(d)
@@ -48,7 +41,6 @@
 </script>
 
 <script>
-
     let ctx = document.getElementById('myChart').getContext('2d');
     let myChart = new Chart(ctx, {
         type: 'line',
@@ -72,16 +64,14 @@
                 xAxes: [{
                     ticks: {
                         autoSkip: true, //necessary so labels don't overlap
-                        minRotation: 75,
-                        maxRotation: 75,
+                        minRotation: 50,
+                        maxRotation: 50,
+                        padding: 2
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Date'
+                        labelString: 'Date',
                     },
-                    // afterFit: (scale) => {
-                    //     scale.width = 10
-                    // }
                 }],
                 yAxes: [{
                     ticks: {

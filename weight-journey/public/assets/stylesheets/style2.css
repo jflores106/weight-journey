@@ -23,13 +23,11 @@ h1 {
     width: 50%;
 }
 
-
-
-.nav-pills a:hover{
+.nav-pills a:hover {
     background-color: #daedf2;
 }
 
-.nav-pills a{
+.nav-pills a {
     font-size: 20px;
 }
 
@@ -42,21 +40,19 @@ h1 {
     overflow: auto;
 }
 
-
-#labels{
+#labels {
     float: left;
     text-align: left;
     width: 25%;
 }
 
-#navColor{
+#navColor {
     background-color: #93d5fe;
 }
 
-#navText{
+#navText {
     color: black;
 }
-
 
 th {
     position: sticky;
@@ -66,12 +62,10 @@ th {
 
 #profile-email {
     font-size: 17px;
-    /*margin:*/
 }
 
 #profile-first {
     font-size: 17px;
-    /*margin: auto;*/
 }
 
 #profile-last {
@@ -89,3 +83,14 @@ th {
         margin-bottom: 2px;
     }
 }
+
+#editButton {
+    border: none;
+}
+
+#footer {
+    bottom: 0;
+    display: block;
+    text-align: center;
+}
+

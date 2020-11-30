@@ -25,7 +25,6 @@ const UserSchema = new Schema({
 UserSchema.set('toJson', { getters: true, virtuals: true})
 UserSchema.set('toObject', { getters: true, virtuals: true})
 
-
 UserSchema.plugin(passportLocalMongoose, {
     usernameField: 'email'
 })
