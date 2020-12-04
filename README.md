@@ -1,9 +1,8 @@
 # Application Name
-The name for my web application will be **Weight Journey**. 
+The name of my web application is **Weight-Journey**. 
 
 # Project Topic/Objective
-The web application I want to create is a weight tracker application. The objective of my web application is to keep track of a user's weight loss and weight gain. The user will enter their weight periodically and the application will store it. The web application will also display the user's weight in a graph. The graph will allow the user to see their weight loss and or weight gain over a period. 
-
+The web application I created is a weight tracker application. The objective of my web application is to keep track of a user's weight loss and weight gain. A user is allowed to enter the date and their weight, which will then be displayed on a table as well as a graph. The user population that my site primarily targets is people who are on a weight-loss journey and those whose weight fluctuates greatly. However, it can also be used by people who are trying to gain weight in order to improve their health. Weight-Journey was developed using a MEN stack. MongoDB was used for the database. Express was used to set up the server. HTML was then used to structure my site. HTML, JavaScript, and Handlebars were used to display the content. I then used both Bootstrap and CSS to style my site.
 
 # Motivation
 This project is of interest to me because I am currently on a weight loss journey. This application will allow me to keep track of my weight loss. My weight fluctuates a lot, making it difficult to keep track of all the changes. Because my weight changes so often, it is difficult to see how much weight I lose over a period of time just by looking at the numbers. The graph that will be displayed in the application will be particularly useful because it will allow me to see whether I achieve my goal of losing a certain amount of weight by a certain period. 
@@ -11,3 +10,6 @@ This project is of interest to me because I am currently on a weight loss journe
 
 # Server-Side Components
 Users' login information along with their weight entries will be stored in a database. 
+
+# Future Work
+There are still features I could add to my site to make it more complete. One feature I would like to implement is a BMI calculator. This would require the inclusion of a height section, as both height and weight are needed to calculate BMI. Along with allowing a user to calculate their BMI, I would also provide a BMI chart. Users could reference the chart to see where they stand in terms of a healthy BMI. I would also implement a page where users can post their favorite healthy recipes. This page would be visible to everyone, regardless of whether a user is signed in. Besides these, I could expand my user population by incorporating different measuring units. Currently, my site only asks for users’ weight. However, I set the units to be in pounds (LBS). This is an issue because I know that most other countries use the metric system, so their mass is calculated in kilograms (kg). I would allow users to select their measuring units of preference. In addition to this, a crucial component that I would like to implement is account recovery. Currently, my site lacks the “forgot password” functionality. Because of this, if a user forgets their password, they lose permanent access to their account. In adding these features, the site functionality would improve while remaining user friendly.
