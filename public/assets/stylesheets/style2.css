@@ -64,12 +64,8 @@ th {
     font-size: 17px;
 }
 
-#profile-first {
+#profile-name {
     font-size: 17px;
-}
-
-#profile-last {
-    font-size: 20px;
 }
 
 @media (max-width: 768px) {
@@ -92,5 +88,17 @@ th {
     bottom: 0;
     display: block;
     text-align: center;
+}
+
+#weightLabel {
+    font-size: 17px;
+}
+
+#poundsLabel{
+    font-size: 17px;
+}
+
+#diaryLabel{
+    font-size: 14px;
 }
 
